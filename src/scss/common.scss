@@ -1,0 +1,61 @@
+// Заголовки, общие БЄМ блоки и проче...
+.visually-hidden {
+    overflow: hidden;
+    width: 0;
+    height: 0;
+}
+
+//========================================================================================================================================================
+
+.socials {
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    gap: rem(18);
+    @media (max-width: $pc) {
+        gap: rem(15);
+    }
+    &__item {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: $white;
+        width: rem(43);
+        flex: 0 0 rem(43);
+        height: rem(43);
+        border-radius: 50%;
+        transition: all 0.3s ease 0s;
+        &._icon-whatsapp {
+            background-color: #2dd038;
+            box-shadow: 0px rem(8) rem(25) rgba(45, 208, 56, 0.497678);
+            @media (any-hover: hover) {
+                &:hover {
+                    box-shadow: 0px rem(8) rem(30) rgba(45, 208, 56, 0.8);
+                }
+            }
+        }
+
+        &._icon-viber {
+            background-color: #7b519d;
+            box-shadow: 0px rem(8) rem(25) rgba(123, 81, 157, 0.503797);
+            @media (any-hover: hover) {
+                &:hover {
+                    box-shadow: 0px rem(8) rem(30) rgba(123, 81, 157, 0.8);
+                }
+            }
+        }
+
+        &._icon-telegram {
+            background-color: #5bbaf0;
+            box-shadow: 0px rem(8) rem(25) rgba(91, 186, 240, 0.5);
+            @media (any-hover: hover) {
+                &:hover {
+                    box-shadow: 0px rem(8) rem(30) rgba(91, 186, 240, 0.8);
+                }
+            }
+        }
+    }
+}
