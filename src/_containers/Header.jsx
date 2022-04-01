@@ -24,7 +24,7 @@ const Header = () => {
                                 email@email.com
                             </a>
                         </div>
-                        <a href="#popup_call" className="contacts__btn button">
+                        <a href="#popup_call" data-popup="#popup_call" className="contacts__btn button">
                             <span>Заказать звонок</span>
                         </a>
                     </div>

@@ -1,6 +1,131 @@
-.App {
+.main-screen {
+    position: relative;
+    overflow: hidden;
+    background-color: $lightGray;
     &__container {
-        background-color: red;
-        height: 100px;
+        position: relative;
+        z-index: 2;
+        @media (min-width: $mobile) {
+            display: flex;
+            justify-content: space-between;
+        }
+        min-height: rem(720);
+    }
+
+    &__body {
+        padding-bottom: rem(80);
+        padding-top: rem(160);
+        @media (max-width: $tablet) {
+            @include adaptiveValue("padding-top", 120, 100);
+            @include adaptiveValue("padding-bottom", 40, 20);
+        }
+        align-self: center;
+        flex: 0 0 percent(675, 1140);
+    }
+
+    &__title {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 35, 20, 991.98, 320, 1);
+        }
+    }
+
+    &__text {
+        @include adaptiveValue("font-size", 24, 20);
+        line-height: math.div(29, 24);
+        span {
+            font-weight: 900;
+        }
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 35, 20, 991.98, 320, 1);
+        }
+    }
+
+    &__button {
+        min-width: rem(210);
+        @media (max-width: $mobileSmall) {
+            width: 100%;
+        }
+    }
+
+    &__image {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        @media (min-width: $tablet) {
+            padding-top: rem(160) !important;
+        }
+        @media (min-width: $mobile) {
+            margin-bottom: rem(-5);
+            @include adaptiveValue("padding-top", 100, 80);
+        }
+        @media (max-width: $mobile) {
+            margin: 0px auto;
+            margin-bottom: -20%;
+        }
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__bg-ibg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+    }
+}
+
+//========================================================================================================================================================
+.documents {
+    @include adaptiveValue("padding-top", 50, 30);
+    @include adaptiveValue("padding-bottom", 70, 40);
+    &__container {
+    }
+
+    &__title {
+        text-align: center;
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 40, 30);
+        }
+    }
+
+    &__body {
+        display: grid;
+        @include adaptiveValue("gap", 30, 20, 991.98, 320, 1);
+        grid-template-columns: repeat(auto-fit, minmax(rem(245), 1fr));
+    }
+
+    &__item {
+        padding: rem(30) rem(20);
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        min-height: rem(190);
+        background-color: $white;
+        transition: box-shadow 0.3s ease 0s;
+        box-shadow: 0px rem(2) rem(15) rgba(0, 0, 0, 0.0677994);
+        @media (any-hover: hover) {
+            &:hover {
+                box-shadow: 0px rem(7) rem(30) rgba(0, 0, 0, 0.1);
+            }
+        }
+    }
+
+    &__icon {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 1 rem(70);
+        &:not(:last-child) {
+            margin-bottom: rem(15);
+        }
+    }
+
+    &__text {
+        font-weight: 600;
+        font-size: rem(19);
+        line-height: math.div(23, 19);
     }
 }

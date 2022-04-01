@@ -59,3 +59,71 @@
         }
     }
 }
+
+//========================================================================================================================================================
+
+.title {
+    font-weight: 900;
+    @include adaptiveValue("font-size", 40, 24);
+    line-height: math.div(51, 40);
+}
+
+//========================================================================================================================================================
+
+.garanty {
+    background-color: $lightGray;
+    @include adaptiveValue("padding-top", 50, 30);
+    @include adaptiveValue("padding-bottom", 50, 30);
+    &__container {
+    }
+
+    &__title {
+        text-align: center;
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 50, 30);
+        }
+    }
+
+    &__block {
+        display: grid;
+        @include adaptiveValue("gap", 30, 20, 991.98, 320, 1);
+        grid-template-columns: repeat(auto-fit, minmax(rem(245), 1fr));
+    }
+    &__item {
+    }
+}
+.item-garanty {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        margin: 0px auto;
+
+        flex: 0 0 rem(98);
+        width: rem(98);
+        height: rem(98);
+        background: #ffffff;
+        border: rem(1) solid #e8e8e8;
+        &:not(:last-child) {
+            margin-bottom: rem(15);
+        }
+    }
+
+    &__title {
+        font-weight: 800;
+        font-size: rem(22);
+        line-height: math.div(28, 22);
+        &:not(:last-child) {
+            margin-bottom: rem(5);
+        }
+    }
+
+    &__text {
+        font-size: rem(17);
+        line-height: math.div(25, 17);
+    }
+}

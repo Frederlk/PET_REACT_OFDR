@@ -90,7 +90,7 @@ const Footer = () => {
                                 </div>
                             </div>
 
-                            <a href="#popup_call" className="footer__btn button">
+                            <a href="#popup_call" data-popup="#popup_call" className="footer__btn button">
                                 <span>Обратный звонок</span>
                             </a>
 
