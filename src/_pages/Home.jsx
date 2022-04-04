@@ -1,6 +1,6 @@
 import React from "react";
 import { Garanty } from "../_components";
-import { MainScreen, Documents } from "../_containers";
+import { MainScreen, Documents, EdPrograms, Examples, News } from "../_containers";
 
 const Home = () => {
     return (
@@ -8,6 +8,9 @@ const Home = () => {
             <MainScreen />
             <Documents />
             <Garanty />
+            <EdPrograms />
+            <Examples />
+            <News />
         </>
     );
 };

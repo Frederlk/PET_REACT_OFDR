@@ -129,3 +129,179 @@
         line-height: math.div(23, 19);
     }
 }
+
+//========================================================================================================================================================
+
+.educational {
+    @include adaptiveValue("padding-top", 50, 30);
+    @include adaptiveValue("padding-bottom", 70, 40);
+    &__container {
+    }
+
+    &__title {
+        text-align: center;
+        &:not(:last-child) {
+            margin-bottom: rem(25);
+        }
+    }
+
+    &__slider {
+    }
+}
+
+.slider-educational {
+    &__swiper {
+        margin: rem(-20);
+        padding: rem(20);
+    }
+
+    &__slide {
+        display: flex;
+        flex-direction: column;
+        background-color: $white;
+        box-shadow: 0px rem(2) rem(15) rgba(0, 0, 0, 0.0677994);
+        transition: box-shadow 0.3s ease 0s;
+        padding: rem(25);
+        @media (any-hover: hover) {
+            &:hover {
+                box-shadow: 0px rem(2) rem(15) rgba(0, 0, 0, 0.1);
+            }
+        }
+    }
+
+    &__image-ibg {
+        display: block;
+        padding-bottom: percent(149, 215);
+        &:not(:last-child) {
+            margin-bottom: rem(15);
+        }
+    }
+
+    &__body {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: rem(10);
+    }
+
+    &__link {
+        font-weight: 800;
+        font-size: rem(19);
+        line-height: math.div(24, 19);
+        text-align: center;
+
+        transition: all 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+
+    &__access {
+        display: inline-flex;
+        align-items: center;
+        gap: em(5, 16);
+
+        font-weight: 500;
+        font-size: rem(16);
+        line-height: math.div(19, 16);
+        color: #53b43b;
+    }
+
+    &__price {
+        font-weight: 800;
+        font-size: rem(22);
+        line-height: math.div(28, 22);
+    }
+
+    &__pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: rem(50);
+        gap: rem(5);
+        .swiper-pagination-bullet {
+            cursor: pointer;
+            width: rem(12);
+            height: rem(12);
+            border-radius: 50%;
+            background-color: #e4e4e4;
+            transition: all 0.3s ease 0s;
+            border: rem(2) solid transparent;
+            @media (any-hover: hover) {
+                &:hover {
+                    background-color: $primary;
+                }
+            }
+        }
+        .swiper-pagination-bullet-active {
+            background-color: $white;
+            border: rem(2) solid $primary;
+        }
+    }
+}
+
+//========================================================================================================================================================
+
+.examples {
+    background-color: $lightGray;
+    @include adaptiveValue("padding-top", 50, 30);
+    @include adaptiveValue("padding-bottom", 70, 40);
+    &__container {
+    }
+
+    &__title {
+        text-align: center;
+        &:not(:last-child) {
+            margin-bottom: rem(40);
+        }
+    }
+
+    &__slider {
+        position: relative;
+        padding: 0px rem(65);
+    }
+    &__slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__navigation {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translate(0px, -50%);
+        left: 0;
+
+        display: flex;
+        justify-content: space-between;
+        pointer-events: none;
+    }
+
+    &__nav-item {
+        font-size: rem(30);
+        pointer-events: all;
+        color: $gray;
+        transition: all 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $primary;
+            }
+        }
+        &_prev {
+        }
+
+        &_next {
+            transform: rotate(-180deg);
+        }
+    }
+}
+
+//========================================================================================================================================================

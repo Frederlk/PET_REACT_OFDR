@@ -9,7 +9,7 @@ const MainScreen = () => {
         <section className="main-screen">
             <div className="main-screen__container">
                 <div className="main-screen__body">
-                    <h1 className="main-screen__title title">
+                    <h1 className="main-screen__title title title_big">
                         Оформление допусков, удостоверений всех строительных и рабочих специальностей
                     </h1>
                     <div className="main-screen__text">

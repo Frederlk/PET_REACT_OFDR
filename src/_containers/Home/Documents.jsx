@@ -2,7 +2,7 @@ import React from "react";
 import { data } from "../../constants";
 
 const Documents = () => {
-    const docElemnts = data.docItems.map(({ id, link, icon, text }, i) => (
+    const docElements = data.docItems.map(({ id, link, icon, text }) => (
         <a key={id} href={link} className="documents__item">
             <div className="documents__icon">
                 <img src={icon} alt={text} />
@@ -15,7 +15,7 @@ const Documents = () => {
         <section className="documents">
             <div className="documents__container">
                 <h2 className="documents__title title">Какие документы хотите оформить?</h2>
-                <div className="documents__body">{docElemnts}</div>
+                <div className="documents__body">{docElements}</div>
             </div>
         </section>
     );
