@@ -262,7 +262,8 @@
 
     &__slider {
         position: relative;
-        padding: 0px rem(65);
+        @include adaptiveValue("padding-right", 65, 30);
+        @include adaptiveValue("padding-left", 65, 30);
     }
     &__slide {
         display: flex;
@@ -305,3 +306,128 @@
 }
 
 //========================================================================================================================================================
+.news {
+    @include adaptiveValue("padding-top", 50, 30);
+    @include adaptiveValue("padding-bottom", 70, 40);
+    &__container {
+    }
+
+    &__title {
+        text-align: center;
+        &:not(:last-child) {
+            margin-bottom: rem(40);
+        }
+    }
+
+    &__body {
+        @media (min-width: $pc) {
+            display: flex;
+            gap: rem(30);
+        }
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 45, 30);
+        }
+    }
+
+    &__action {
+        @media (min-width: $pc) {
+            flex: 0 1 calc(50% - rem(15));
+        }
+        @media (max-width: $pc) {
+            &:not(:last-child) {
+                margin-bottom: rem(30);
+            }
+        }
+    }
+
+    &__latest {
+        @media (min-width: $pc) {
+            flex: 0 1 calc(50% - rem(15));
+        }
+    }
+
+    &__more {
+        display: flex;
+        margin: 0px auto;
+        @media (min-width: $mobileSmall) {
+            max-width: rem(225);
+        }
+    }
+}
+.action-news {
+    position: relative;
+    background-color: $lightGray;
+    box-shadow: 0px rem(2) rem(15) rgba(0, 0, 0, 0.0677994);
+    padding: rem(40) rem(0) rem(40) rem(30);
+    @media (max-width: $pc) {
+        padding: rem(40) rem(30);
+    }
+    @media (min-width: em(630)) {
+        display: flex;
+        justify-content: space-between;
+    }
+    @media (max-width: em(630)) {
+        padding: rem(20);
+    }
+
+    &__content {
+        flex: 0 0 percent(272, 555);
+        position: relative;
+        z-index: 2;
+        @media (max-width: $mobile) {
+            flex: 0 0 70%;
+        }
+        @media (max-width: em(630)) {
+            text-align: center;
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: rem(24);
+        line-height: math.div(33, 24);
+        &:not(:last-child) {
+            margin-bottom: rem(15);
+        }
+        span {
+            color: $primary;
+        }
+    }
+
+    &__text {
+        line-height: math.div(24, 16);
+    }
+
+    &__image {
+        @media (max-width: $mobile) {
+            display: none;
+        }
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__bg-ibg {
+        position: absolute;
+        width: rem(240);
+        height: 100%;
+        top: 0;
+        right: 0;
+        @media (max-width: em(630)) {
+            display: none;
+        }
+    }
+}
+
+.latest-news {
+    display: grid;
+    gap: rem(30);
+    grid-template-columns: repeat(auto-fit, minmax(rem(262), 1fr));
+    &__item {
+    }
+}

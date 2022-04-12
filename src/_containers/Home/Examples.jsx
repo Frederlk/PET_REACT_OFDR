@@ -32,15 +32,15 @@ const Examples = () => {
                                     slidesPerView: 1,
                                     spaceBetween: 15,
                                 },
-                                570: {
+                                479.98: {
                                     slidesPerView: 2,
                                     spaceBetween: 20,
                                 },
-                                860: {
+                                650: {
                                     slidesPerView: 3,
                                     spaceBetween: 20,
                                 },
-                                1170: {
+                                991.98: {
                                     slidesPerView: 4,
                                     spaceBetween: 35,
                                 },

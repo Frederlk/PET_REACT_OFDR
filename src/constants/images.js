@@ -1,5 +1,5 @@
 import bg_home from "./../assets/img/bg_home.png";
-import bg_action from "./../assets/img/bg_action.png";
+import bg_action from "./../assets/img/bg_action.svg";
 import bg_secondary from "./../assets/img/bg_secondary.png";
 import map from "./../assets/img/map.png";
 import person from "./../assets/img/person.png";

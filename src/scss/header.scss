@@ -4,6 +4,11 @@
 	top: 0;
 	left: 0;
 	z-index: 100;
+	&_other {
+		position: relative;
+		background-color: $lightGray;
+		box-shadow: 0px rem(2) rem(15) rgba(0, 0, 0, 0.149476);
+	}
 	@media (max-width: $mobile) {
 		&::before {
 			content: "";

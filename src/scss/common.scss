@@ -133,3 +133,116 @@
 }
 
 //========================================================================================================================================================
+
+.news-item {
+    background-color: $white;
+    box-shadow: 0px rem(2) rem(15) rgba(0, 0, 0, 0.0677994);
+    transition: all 0.3s ease 0s;
+    padding: rem(25);
+    @media (any-hover: hover) {
+        &:hover {
+            box-shadow: 0px rem(2) rem(15) rgba(0, 0, 0, 0.1);
+        }
+    }
+    &__image-ibg {
+        display: block;
+        padding-bottom: percent(146, 215);
+        &:not(:last-child) {
+            margin-bottom: rem(15);
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        gap: rem(10);
+    }
+
+    &__date {
+        font-size: rem(14);
+        line-height: math.div(17, 14);
+        color: $gray;
+    }
+
+    &__title {
+        flex: 1 1 auto;
+        font-weight: 700;
+        font-size: rem(19);
+        line-height: math.div(24, 19);
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+
+    &__text {
+        line-height: math.div(19, 18);
+    }
+}
+
+//========================================================================================================================================================
+
+.breadcrumbs {
+    &__container {
+    }
+
+    &__list {
+        @include adaptiveValue("padding-top", 25, 15);
+        padding-bottom: rem(30);
+        display: flex;
+        align-items: center;
+        overflow: auto;
+    }
+
+    &__item {
+        font-size: rem(15);
+        line-height: math.div(18, 15);
+        &::before {
+            background-color: #7d7d7d !important;
+        }
+        &::after {
+            content: "-";
+            padding: 0px rem(5);
+            color: #7d7d7d;
+        }
+        &:last-child {
+            color: #7d7d7d;
+            &::after {
+                display: none;
+            }
+        }
+        a {
+            @media (any-hover: hover) {
+                &:hover {
+                    color: #7d7d7d;
+                    &::before {
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+
+    &__item,
+    &__item a {
+        position: relative;
+        color: $primary;
+        transition: color 0.3s ease 0s;
+        white-space: nowrap;
+        &::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: rem(1);
+            bottom: rem(-1);
+            background-color: $primary;
+            transition: background-color 0.3s ease 0s;
+            left: 0;
+        }
+    }
+
+    &__link {
+    }
+}

@@ -3,7 +3,7 @@ import { Socials } from "../_components";
 
 const Header = () => {
     return (
-        <header className="header">
+        <header className="header header_other">
             <div className="header__container">
                 <div className="header__top top-header">
                     <div className="top-header__logo logo">

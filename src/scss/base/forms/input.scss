@@ -14,7 +14,7 @@ textarea {
 	padding: rem(5) rem(15);
 	border-radius: rem(2);
 	background-color: $white;
-	min-height: rem(40);
+	min-height: rem(45);
 
 	font-weight: 400;
 	font-size: rem(14);
@@ -28,6 +28,10 @@ textarea {
 	}
 }
 textarea.input {
+	padding: rem(15);
+	@media (min-width: $mobile) {
+		max-height: rem(45);
+		overflow: hidden;
+	}
 	resize: none;
-	padding: 0px 0px;
 }

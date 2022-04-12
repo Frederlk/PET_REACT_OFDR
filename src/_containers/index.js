@@ -6,3 +6,6 @@ export { default as Documents } from "./Home/Documents";
 export { default as EdPrograms } from "./Home/EdPrograms";
 export { default as Examples } from "./Home/Examples";
 export { default as News } from "./Home/News";
+
+export { default as Content } from "./Attestation/Content";
+export { default as Form } from "./Attestation/Form";

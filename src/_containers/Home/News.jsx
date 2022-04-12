@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { images, data } from "../../constants";
 
 import { NewsItem } from "../../_components";
 
 const News = () => {
+    const [newsData, setNewsData] = useState([]);
+
+    useEffect(() => setNewsData(data.newsItems), [data.newsItems]);
+
     return (
         <section className="news">
             <div className="news__container">
@@ -20,14 +24,15 @@ const News = () => {
                             </p>
                         </div>
                         <div className="action-news__image">
-                            <img src={images.docsImages.docs05} alt="Удостоверение" />
+                            <img src={images.docsImages.docs06} alt="Удостоверение" />
                         </div>
                         <div className="action-news__bg-ibg">
                             <img src={images.defaultImages.bg_action} alt="Задний Фон" />
                         </div>
                     </div>
                     <div className="news__latest latest-news">
-                        <NewsItem className="latest-news__item" data={data.newsItems[0]} />
+                        <NewsItem className="latest-news__item" data={newsData?.length ? newsData[0] : null} />
+                        <NewsItem className="latest-news__item" data={newsData?.length ? newsData[1] : null} />
                     </div>
                 </div>
                 <a href="#" className="news__more button button_outline">

@@ -1,19 +1,17 @@
 import React from "react";
 
 const NewsItem = ({ data, className }) => {
-    const { link, date, image, title, text } = data;
-
     return (
         <article className={`${className} news-item`}>
-            <a href={link} className="news-item__image">
-                <img src={image} alt={title} />
+            <a href={data?.link} className="news-item__image-ibg">
+                <img src={data?.image} alt={data?.title} />
             </a>
             <div className="news-item__body">
-                <div className="news-item__date">{date}</div>
-                <a href={link} className="news-item__title">
-                    {title}
+                <div className="news-item__date">{data?.date}</div>
+                <a href={data?.link} className="news-item__title">
+                    {data?.title}
                 </a>
-                <p className="news-item__text">{text.substring(0, 64) + "..."}</p>
+                <p className="news-item__text">{data?.text.substring(0, 64) + "..."}</p>
             </div>
         </article>
     );

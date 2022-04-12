@@ -70,6 +70,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
+	position: relative;
 	// Прижимаем footer
 	> main {
 		flex: 1 1 auto;
@@ -139,3 +140,5 @@ body {
 
 // Подключение стилей отдельных страниц
 @import "home";
+
+@import "attestation";

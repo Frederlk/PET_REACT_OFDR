@@ -3,7 +3,7 @@ import * as flsFunctions from "./js/files/functions";
 import { useEffect, useState } from "react";
 import dynamicAdaptive from "./js/libs/dynamic_adapt";
 import { _PopupCall } from "./_components";
-import { Home } from "./_pages";
+import { Home, Attestation } from "./_pages";
 
 const App = () => {
     useEffect(() => {
@@ -16,7 +16,8 @@ const App = () => {
         <>
             <Header />
             <main className="page">
-                <Home />
+                {/* <Home /> */}
+                <Attestation />
             </main>
             <Footer />
             <_PopupCall />
