@@ -246,3 +246,75 @@
     &__link {
     }
 }
+
+//========================================================================================================================================================
+
+.pagging {
+    @include adaptiveValue("padding-top", 50, 30);
+    @include adaptiveValue("padding-bottom", 70, 40);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: rem(5);
+    &__item {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border: rem(2) solid #d0d0d0;
+        color: #d0d0d0;
+        width: rem(28);
+        height: rem(28);
+        cursor: pointer;
+
+        font-weight: 700;
+        font-size: rem(14);
+        line-height: math.div(17, 14);
+        transition: all 0.3s ease 0s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: $primary;
+                border: rem(2) solid $primary;
+            }
+        }
+        &._active {
+            color: $primary;
+            border: rem(2) solid $primary;
+        }
+    }
+}
+
+//========================================================================================================================================================
+
+.page404 {
+    @include adaptiveValue("padding-top", 50, 30);
+    @include adaptiveValue("padding-bottom", 50, 30);
+    &__container {
+        text-align: center;
+    }
+
+    &__title {
+        &:not(:last-child) {
+            margin-bottom: rem(30);
+        }
+    }
+    &__subtitle {
+        font-weight: 700;
+        font-size: rem(18);
+        line-height: math.div(22, 18);
+        &:not(:last-child) {
+            margin-bottom: rem(20);
+        }
+    }
+
+    &__button {
+        min-width: rem(290);
+    }
+}
+
+//========================================================================================================================================================
+
+.spinner {
+    @include adaptiveValue("margin-top", 100, 70);
+    @include adaptiveValue("margin-bottom", 100, 70);
+}

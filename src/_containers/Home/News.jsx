@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { images, data } from "../../constants";
+import { Link } from "react-router-dom";
 
 import { NewsItem } from "../../_components";
 
 const News = () => {
-    const [newsData, setNewsData] = useState([]);
+    const [newsData, setNewsData] = useState(data.newsItems.slice());
 
-    useEffect(() => setNewsData(data.newsItems), [data.newsItems]);
+    useEffect(() => {
+        setNewsData(() => newsData.sort((a, b) => b.date - a.date));
+    }, []);
 
     return (
         <section className="news">
@@ -35,9 +38,9 @@ const News = () => {
                         <NewsItem className="latest-news__item" data={newsData?.length ? newsData[1] : null} />
                     </div>
                 </div>
-                <a href="#" className="news__more button button_outline">
+                <Link to="/news" className="news__more button button_outline">
                     ВСЕ НОВОСТИ
-                </a>
+                </Link>
             </div>
         </section>
     );

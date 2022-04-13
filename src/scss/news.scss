@@ -1,0 +1,25 @@
+.news-page {
+    &__container {
+    }
+
+    &__title {
+        &:not(:last-child) {
+            margin-bottom: rem(20);
+        }
+    }
+
+    &__block {
+        display: grid;
+        gap: rem(30);
+        grid-template-columns: repeat(auto-fit, minmax(rem(260), 0.25fr));
+        @media (max-width: $pc) {
+            grid-template-columns: repeat(auto-fit, minmax(rem(260), 1fr));
+        }
+    }
+
+    &__item {
+    }
+
+    &__paggination {
+    }
+}

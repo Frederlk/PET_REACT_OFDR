@@ -1,23 +1,31 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import useBreadcrumbs from "use-react-router-breadcrumbs";
+import { data } from "../constants";
 
 const Breadcrumbs = () => {
+    const breadcrumbs = useBreadcrumbs(data.routes);
     return (
         <div className="breadcrumbs">
             <div className="breadcrumbs__container">
                 <ul className="breadcrumbs__list">
-                    <li className="breadcrumbs__item">
-                        <a href="#" className="breadcrumbs__link">
-                            Главная
-                        </a>
-                    </li>
-                    <li className="breadcrumbs__item">
-                        <a href="#" className="breadcrumbs__link">
-                            Аттестация
-                        </a>
-                    </li>
-                    <li className="breadcrumbs__item">
-                        <span className="breadcrumbs__link">Аттестация по электробезопасности</span>
-                    </li>
+                    {breadcrumbs.map(({ match, breadcrumb }, i) => {
+                        if (i == breadcrumbs.length - 1) {
+                            return (
+                                <li key={match.pathname} className="breadcrumbs__item">
+                                    <span className="breadcrumbs__link">{breadcrumb}</span>
+                                </li>
+                            );
+                        } else {
+                            return (
+                                <li key={match.pathname} className="breadcrumbs__item">
+                                    <Link to={match.pathname} className="breadcrumbs__link">
+                                        {breadcrumb}
+                                    </Link>
+                                </li>
+                            );
+                        }
+                    })}
                 </ul>
             </div>
         </div>

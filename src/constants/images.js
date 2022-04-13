@@ -3,6 +3,7 @@ import bg_action from "./../assets/img/bg_action.svg";
 import bg_secondary from "./../assets/img/bg_secondary.png";
 import map from "./../assets/img/map.png";
 import person from "./../assets/img/person.png";
+import qr from "./../assets/img/qr.svg";
 
 import news01 from "./../assets/img/news/01.jpg";
 import news02 from "./../assets/img/news/02.jpg";
@@ -62,6 +63,7 @@ const defaultImages = {
     bg_secondary,
     map,
     person,
+    qr,
 };
 
 const newsImages = {

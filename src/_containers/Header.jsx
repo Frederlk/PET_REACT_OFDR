@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Socials } from "../_components";
+import { NavLink, Link, useLocation } from "react-router-dom";
 
 const Header = () => {
+    const [otherHeader, setOtherHeader] = useState(null);
+    const { pathname } = useLocation();
+    useEffect(() => {
+        pathname !== "/" ? setOtherHeader("header_other") : setOtherHeader(null);
+    }, [pathname]);
+
     return (
-        <header className="header header_other">
+        <header className={`header ${otherHeader}`}>
             <div className="header__container">
                 <div className="header__top top-header">
                     <div className="top-header__logo logo">
-                        <a href="#" className="logo__main">
+                        <Link to="/" className="logo__main">
                             OFDR
-                        </a>
+                        </Link>
                         <div className="logo__text">центр профессиональной дистанционной переподготовки кадров</div>
                     </div>
 
@@ -38,34 +45,34 @@ const Header = () => {
                         <nav className="menu__body">
                             <ul className="menu__list">
                                 <li className="menu__item">
-                                    <a href="" className="menu__link">
-                                        Курсы
-                                    </a>
-                                </li>
-                                <li className="menu__item">
-                                    <a href="" className="menu__link">
+                                    <NavLink to="/attestations/electric" className="menu__link">
                                         АТТЕСТАЦИЯ
-                                    </a>
+                                    </NavLink>
                                 </li>
                                 <li className="menu__item">
-                                    <a href="" className="menu__link">
-                                        ОХРАНА ТРУДА
-                                    </a>
+                                    <NavLink to="/news" className="menu__link">
+                                        НОВОСТИ
+                                    </NavLink>
                                 </li>
                                 <li className="menu__item">
-                                    <a href="" className="menu__link">
+                                    <NavLink to="/courses" className="menu__link">
+                                        Курсы
+                                    </NavLink>
+                                </li>
+                                <li className="menu__item">
+                                    <NavLink to="/fire" className="menu__link">
                                         ПОЖАРНАЯ БЕЗОПАСНОСТЬ
-                                    </a>
+                                    </NavLink>
                                 </li>
                                 <li className="menu__item">
-                                    <a href="" className="menu__link">
+                                    <NavLink to="/dopog" className="menu__link">
                                         СВИДЕТЕЛЬСТВО ДОПОГ
-                                    </a>
+                                    </NavLink>
                                 </li>
                                 <li className="menu__item">
-                                    <a href="" className="menu__link">
-                                        ПРАВА НА СПЕЦТЕХНИКУ
-                                    </a>
+                                    <NavLink to="/contacts" className="menu__link">
+                                        КОНТАКТЫ
+                                    </NavLink>
                                 </li>
                             </ul>
                         </nav>

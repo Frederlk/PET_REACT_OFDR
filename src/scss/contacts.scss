@@ -1,0 +1,183 @@
+.page-contacts {
+    @media (min-width: $mobileSmall) {
+        @include adaptiveValue("padding-bottom", 70, 40);
+    }
+    &__container {
+        position: relative;
+        display: flex;
+        gap: rem(30);
+        align-items: flex-start;
+        @media (max-width: $mobile) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__content {
+        @media (min-width: $mobile) {
+            flex: 1 1 auto;
+        }
+        position: relative;
+        z-index: 2;
+    }
+    &__form {
+        flex: 0 0 percent(458, 1140);
+        @media (max-width: em(860)) {
+            flex: 0 0 45%;
+        }
+        @media (max-width: $mobile) {
+            flex: 1 1 100%;
+        }
+        @media (max-width: $mobileSmall) {
+            margin: 0px rem(-15);
+        }
+    }
+
+    &__bg {
+        position: absolute;
+        @include adaptiveValue("top", -60, 0, 1920, 767.98, 1);
+        z-index: -1;
+        @include adaptiveValue("left", -230, 10, 1920, 1170, 1);
+        height: percent(554, 1140);
+        width: percent(992, 1140);
+        img {
+            max-width: 100%;
+        }
+        @media (max-width: $mobile) {
+            @include adaptiveValue("top", 0, 20, 767.98, 320, 1);
+            left: 50%;
+            transform: translate(-50%, 0px);
+        }
+    }
+}
+.content-contacts {
+    &__title {
+        &:not(:last-child) {
+            margin-bottom: rem(5);
+        }
+    }
+
+    &__text {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 45, 20);
+        }
+    }
+    &__phone {
+    }
+
+    &__mail {
+    }
+    &__links {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 52, 25);
+        }
+        a {
+            &:not(:last-child) {
+                margin-bottom: rem(15);
+            }
+        }
+    }
+
+    &__socials {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 52, 25);
+        }
+    }
+    &__qr {
+    }
+}
+.qr-contacts {
+    column-gap: rem(30);
+    display: flex;
+    @media (max-width: em(860)) {
+        flex-direction: column;
+    }
+    @media (max-width: $mobile) {
+        flex-direction: row;
+    }
+    @media (max-width: em(550)) {
+        flex-direction: column;
+    }
+    &__image {
+        flex: 0 0 rem(166);
+        img {
+            max-width: 100%;
+        }
+    }
+    &__content {
+        flex: 0 1 rem(360);
+        @media (max-width: em(860)) {
+            flex: 1 1 auto;
+        }
+    }
+
+    &__title {
+        margin-top: rem(20);
+        font-weight: 700;
+        font-size: rem(18);
+        line-height: math.div(22, 18);
+        @media (max-width: em(860)) {
+            margin-top: rem(10);
+        }
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 20, 10);
+        }
+    }
+
+    &__text {
+        font-weight: 400;
+        line-height: math.div(22, 16);
+    }
+}
+
+//========================================================================================================================================================
+
+.form-contacts {
+    padding: rem(30) rem(20);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $primary;
+    box-shadow: 0px rem(2) rem(6) rgba(38, 54, 77, 0.275514);
+    gap: rem(15);
+
+    @media (max-width: $mobileSmall) {
+        padding: rem(30) rem(15);
+    }
+    &__title {
+        font-weight: 900;
+        @include adaptiveValue("font-size", 30, 20, 1140, 479.98, 1);
+        line-height: math.div(38, 30);
+        color: $white;
+        &:not(:last-child) {
+            margin-bottom: rem(10);
+        }
+        @media (max-width: $mobileSmall) {
+            font-size: rem(26);
+        }
+    }
+
+    &__input {
+        @media (min-width: $mobile) {
+            max-width: rem(322);
+        }
+    }
+
+    &__textarea {
+        @media (min-width: $mobile) {
+            max-width: rem(322);
+        }
+        min-height: rem(120);
+    }
+
+    &__button {
+        margin-top: rem(10);
+        @media (min-width: $mobile) {
+            margin: 0px auto;
+            max-width: rem(195);
+        }
+        @media (max-width: $mobileSmall) {
+            width: 100%;
+        }
+    }
+}

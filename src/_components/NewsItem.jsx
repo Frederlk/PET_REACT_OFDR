@@ -1,4 +1,6 @@
+import { format } from "date-fns";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NewsItem = ({ data, className }) => {
     return (
@@ -7,10 +9,11 @@ const NewsItem = ({ data, className }) => {
                 <img src={data?.image} alt={data?.title} />
             </a>
             <div className="news-item__body">
-                <div className="news-item__date">{data?.date}</div>
-                <a href={data?.link} className="news-item__title">
+                <div className="news-item__date">{format(data?.date, "dd.MM.yyyy")}</div>
+
+                <Link to={data?.link} className="news-item__title">
                     {data?.title}
-                </a>
+                </Link>
                 <p className="news-item__text">{data?.text.substring(0, 64) + "..."}</p>
             </div>
         </article>

@@ -29,9 +29,12 @@ const Content = () => {
                                         V группа 1 или <span>3 года</span>
                                     </div>
                                 </div>
-                                <a href="" className="pricing-banner__button button button_secondary">
+                                <button
+                                    type="button"
+                                    data-goto=".product-page__form"
+                                    className="pricing-banner__button button button_secondary">
                                     Заказать
-                                </a>
+                                </button>
                             </div>
                             <div className="banner-product__headers">
                                 <h1 className="banner-product__title title title_big">Аттестация по электробезопасности</h1>

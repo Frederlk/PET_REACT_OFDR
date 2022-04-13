@@ -69,13 +69,16 @@ body::after {
 	&__close {
 		display: block;
 		position: absolute;
-		top: rem(10);
-		right: rem(10);
+		top: rem(30);
+		right: rem(30);
 		width: rem(30);
 		height: rem(30);
 		cursor: pointer;
 		z-index: 10;
-
+		@media (max-width: $mobile) {
+			top: rem(20);
+			right: rem(20);
+		}
 		&::before,
 		&::after {
 			content: "";
@@ -108,10 +111,10 @@ body::after {
 	&__text {
 		font-size: rem(18);
 		line-height: math.div(22, 17);
+		padding-right: rem(40);
 		&:not(:last-child) {
 			margin-bottom: rem(30);
 			@media (max-width: $mobile) {
-				margin-top: rem(20);
 				margin-bottom: rem(20);
 			}
 		}
