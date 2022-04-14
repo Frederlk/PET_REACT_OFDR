@@ -447,7 +447,11 @@ export function menuInit() {
             if (bodyLockStatus && e.target.closest(".icon-menu")) {
                 bodyLockToggle();
                 document.documentElement.classList.toggle("menu-open");
-            } else if (bodyLockStatus && !e.target.closest(".menu__body")) {
+            } else if (
+                document.documentElement.classList.contains("menu-open") &&
+                bodyLockStatus &&
+                !e.target.closest(".menu__body")
+            ) {
                 menuClose();
             }
         });

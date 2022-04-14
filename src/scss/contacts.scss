@@ -180,4 +180,16 @@
             width: 100%;
         }
     }
+    &__error {
+        width: 100%;
+        margin-top: rem(-12);
+        @media (min-width: $mobile) {
+            max-width: rem(322);
+        }
+        text-align: left;
+        color: red;
+        font-weight: 500;
+        font-size: rem(14);
+        line-height: math.div(17, 14);
+    }
 }

@@ -24,14 +24,18 @@ textarea {
 	&._form-focus {
 		color: $mainColor;
 	}
+	._error &,
 	&._error {
+		border: rem(2) solid red;
 	}
 }
 textarea.input {
-	padding: rem(15);
+	padding: rem(15) rem(15) rem(5) rem(15);
+	@media (max-width: $mobile) {
+		padding: rem(15);
+	}
 	@media (min-width: $mobile) {
 		max-height: rem(45);
-		overflow: hidden;
 	}
 	resize: none;
 }

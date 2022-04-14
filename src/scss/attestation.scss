@@ -245,6 +245,7 @@
     }
 
     &__item {
+        position: relative;
         &_short {
         }
 
@@ -307,6 +308,17 @@
                 }
             }
         }
+    }
+
+    &__error {
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        left: 0;
+        color: red;
+        font-weight: 500;
+        font-size: rem(14);
+        line-height: math.div(17, 14);
     }
 
     &__button {

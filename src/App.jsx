@@ -3,7 +3,7 @@ import * as flsFunctions from "./js/files/functions";
 import * as flsScroll from "./js/files/scroll/scroll.js";
 import { lazy, Suspense, useEffect } from "react";
 import dynamicAdaptive from "./js/libs/dynamic_adapt";
-import { Spinner, _PopupCall } from "./_components";
+import { Spinner, _PopupCall, _PopupSended } from "./_components";
 
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 
@@ -49,6 +49,7 @@ const App = () => {
                 <Footer />
 
                 <_PopupCall />
+                <_PopupSended />
             </Router>
         </>
     );

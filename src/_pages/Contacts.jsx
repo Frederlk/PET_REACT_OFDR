@@ -4,6 +4,46 @@ import Helmet from "react-helmet";
 import images from "../constants/images";
 import { Breadcrumbs, Socials } from "../_components";
 
+import { Formik, Form as FormikForm, useField } from "formik";
+import * as Yup from "yup";
+import InputMask from "react-input-mask";
+
+const FormContactsItem = ({ inputMask, ...props }) => {
+    const [field, meta] = useField(props);
+    return (
+        <>
+            {inputMask ? (
+                <InputMask mask={inputMask} maskChar="_" {...field}>
+                    {() => (
+                        <input
+                            {...props}
+                            className={`form-contacts__input input ${meta.touched && meta.error ? "_error" : ""}`}
+                        />
+                    )}
+                </InputMask>
+            ) : (
+                <input
+                    {...props}
+                    {...field}
+                    className={`form-contacts__input input ${meta.touched && meta.error ? "_error" : ""}`}
+                />
+            )}
+            {meta.touched && meta.error ? <div className="form-contacts__error">{meta.error}</div> : null}
+        </>
+    );
+};
+
+const FormContactsTextarea = ({ ...props }) => {
+    const [field, meta] = useField({ ...props, type: "textarea" });
+
+    return (
+        <>
+            <textarea {...props} {...field} className="form-contacts__textarea input"></textarea>
+            {meta.touched && meta.error ? <div className="form-contacts__error">{meta.error}</div> : null}
+        </>
+    );
+};
+
 const Contacts = () => {
     return (
         <>
@@ -39,43 +79,46 @@ const Contacts = () => {
                             </div>
                         </div>
                     </div>
-                    <form action="#" className="page-contacts__form form-contacts">
-                        <h2 className="form-contacts__title">Форма обратной связи</h2>
-                        <input
-                            autoComplete="off"
-                            type="text"
-                            name="form[]"
-                            data-error="Ошибка"
-                            placeholder="Как к Вам обращаться?"
-                            className="form-contacts__input input"
-                        />
-                        <textarea
-                            autoComplete="off"
-                            type="text"
-                            name="form[]"
-                            data-error="Ошибка"
-                            placeholder="Желаемые документы"
-                            className="form-contacts__textarea input"></textarea>
-                        <input
-                            autoComplete="off"
-                            type="text"
-                            name="form[]"
-                            data-error="Ошибка"
-                            placeholder="+7 (__) __ - __ - __"
-                            className="form-contacts__input input"
-                        />
-                        <input
-                            autoComplete="off"
-                            type="text"
-                            name="form[]"
-                            data-error="Ошибка"
-                            placeholder="Email"
-                            className="form-contacts__input input"
-                        />
-                        <button type="submit" className="form-contacts__button button">
-                            Отправить заявку
-                        </button>
-                    </form>
+                    <Formik
+                        initialValues={{
+                            fullName: "",
+                            phone: "",
+                            email: "",
+                            documents: "",
+                        }}
+                        validationSchema={Yup.object({
+                            fullName: Yup.string().min(2, "Минимум 2 символа").required("Обязательное поле!"),
+                            phone: Yup.string().matches(
+                                /^(1[ \-+]{0,3}|\+[0-9][ -+]{0,3}|\+1|\+)?((\(\+?1-[2-9][0-9]{1,2}\))|(\(\+?[2-8][0-9][0-9]\))|(\(\+?[1-9][0-9]\))|(\(\+?[17]\))|(\([2-9][2-9]\))|([ \-.]{0,3}[0-9]{2,4}))?([ \-.][0-9])?([ \-.]{0,3}[0-9]{2,4}){2,3}$/g,
+                                "Введите Телефон"
+                            ),
+                            email: Yup.string().email("Неправильный email адрес").required("Обязательное поле!"),
+                            documents: Yup.string().min(2, "Минимум 2 символа"),
+                        })}
+                        onSubmit={(values, { resetForm }) => {
+                            values = {
+                                ...values,
+                                phone: values.phone.replace(/[-() ]/g, ""),
+                            };
+                            resetForm();
+                            console.log(JSON.stringify(values, null, 2));
+                        }}>
+                        <FormikForm action="#" className="page-contacts__form form-contacts">
+                            <h2 className="form-contacts__title">Форма обратной связи</h2>
+                            <FormContactsItem type="text" name="fullName" placeholder="Как к Вам обращаться?" />
+                            <FormContactsTextarea type="text" name="documents" placeholder="Желаемые документы" />
+                            <FormContactsItem
+                                type="tel"
+                                name="phone"
+                                inputMask="+7\ (99) 99 - 99 - 99"
+                                placeholder="+7 (__) __ - __ - __"
+                            />
+                            <FormContactsItem type="text" name="email" placeholder="Email" />
+                            <button type="submit" className="form-contacts__button button">
+                                Отправить заявку
+                            </button>
+                        </FormikForm>
+                    </Formik>
                     <div className="page-contacts__bg">
                         <img src={images.defaultImages.map} alt="Карта России" />
                     </div>
