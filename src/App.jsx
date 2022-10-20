@@ -1,8 +1,8 @@
 import { Header, Footer } from "./_containers";
-import * as flsFunctions from "./js/files/functions";
-import * as flsScroll from "./js/files/scroll/scroll.js";
+import * as flsFunctions from "./js/functions";
+import * as flsScroll from "./js/scroll/scroll.js";
 import { lazy, Suspense, useEffect } from "react";
-import dynamicAdaptive from "./js/libs/dynamic_adapt";
+import dynamicAdaptive from "./js/dynamic_adapt";
 import { Spinner, _PopupCall, _PopupSended } from "./_components";
 
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
@@ -17,41 +17,36 @@ const ScrollToTop = () => {
     const { pathname } = useLocation();
     useEffect(() => {
         window.scrollTo(0, 0);
+        flsFunctions.menuInit();
+        flsFunctions.spollers();
+        flsScroll.pageNavigation();
+        dynamicAdaptive();
         flsFunctions.menuClose();
     }, [pathname]);
     return null;
 };
 
 const App = () => {
-    useEffect(() => {
-        flsFunctions.menuInit();
-        flsFunctions.spollers();
-        flsScroll.pageNavigation();
-        dynamicAdaptive();
-    }, []);
-
     return (
-        <>
-            <Router>
-                <ScrollToTop />
-                <Header />
-                <main className="page">
-                    <Suspense fallback={<Spinner />}>
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="attestations/electric" element={<Attestation />} />
-                            <Route path="news" element={<News />} />
-                            <Route path="contacts" element={<Contacts />} />
-                            <Route path="*" element={<Page404 />} />
-                        </Routes>
-                    </Suspense>
-                </main>
-                <Footer />
+        <Router>
+            <ScrollToTop />
+            <Header />
+            <main className="page">
+                <Suspense fallback={<Spinner />}>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="attestations/electric" element={<Attestation />} />
+                        <Route path="news" element={<News />} />
+                        <Route path="contacts" element={<Contacts />} />
+                        <Route path="*" element={<Page404 />} />
+                    </Routes>
+                </Suspense>
+            </main>
+            <Footer />
 
-                <_PopupCall />
-                <_PopupSended />
-            </Router>
-        </>
+            <_PopupCall />
+            <_PopupSended />
+        </Router>
     );
 };
 
